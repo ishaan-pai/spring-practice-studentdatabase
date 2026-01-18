@@ -18,17 +18,18 @@ public class StudentController {
     }
 
     @GetMapping
-    public List<Student> getStudents() {
+    public List<StudentDTOResponse> getStudents() {
         return studentService.getStudents();
     }
 
     @GetMapping(path = "{studentId}")
-    public Optional<Student> getStudent(@PathVariable("studentId") Long studentId){
+    public Optional<StudentDTOResponse> getStudent(@PathVariable("studentId") Long studentId){
         return studentService.getStudent(studentId);
     }
 
     @PostMapping
     public Student registerNewStudent(@RequestBody Student student){
+
         return studentService.addNewStudent(student);
     }
 
